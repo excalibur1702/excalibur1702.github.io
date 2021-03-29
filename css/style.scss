@@ -1,0 +1,317 @@
+$background: #222629;
+$sidebar: #1d2124;
+$sidebar-clicked: #121619;
+$content: #222629;
+$projects: rgba(34, 38, 41, 0.9);
+$border: #61892f;
+
+$text0: #86ff32;
+$text1: #86c232;
+$text2: #c2c6c9;
+$text3: #61892f;
+$text4: #e2e6e9;
+
+$border-width: 1px;
+$selected-border-width: 4px;
+
+$time: 0.5s;
+
+html, body, #root, #main{
+    height: 100%;
+    width: 100%;
+}
+html{
+    font-family: "Trebuchet MS", sans-serif;
+    background-color: $background;
+    display: flex;
+}
+body{
+    margin: 0;
+}
+ul{
+    list-style-type: none;
+    padding: 0;
+}
+a{
+    text-decoration: none;
+    color: $text1;
+    transition: all $time/2 ease;
+}
+#main{
+    display: grid;
+    grid-template-columns: 2fr 8fr;
+    grid-template-rows: 1fr;
+    box-sizing: border-box;
+}
+#sidebar{
+    border-right: solid $border-width $border;
+    box-sizing: border-box;
+    background-color: $sidebar;
+    height: 100%;
+    color: $text1;
+    z-index: 2;
+}
+#menu-header{
+    text-align: center;
+}
+#name{
+    margin-bottom: 0;
+    margin-top: 40px;
+    padding: 0px 10px;
+    box-sizing: border-box;
+    font-size: 72px;
+    color: $text0;
+}
+#description{
+    padding: 0px 10px;
+    box-sizing: border-box;
+    font-size: 18px;
+    font-style: italic;
+    color: $text4
+}
+#menu{
+    margin-top: 80px;
+}
+.menu-item{
+    display: block;
+    cursor: pointer;
+    padding: 20px 10px;
+    box-sizing: border-box;
+    font-size: 24px;
+    background: linear-gradient(90deg, $sidebar 45%, $sidebar-clicked 55%);
+    background-size: 220%;
+    color: $text2;
+}
+.not-selected{
+    background-position: 0%;
+    transition: all $time/2 ease-in-out;
+}
+.not-selected:hover{
+    background-position: 100%;
+    transition: all $time/2 ease-in-out;
+}
+.selected{
+    background-position: 100%;
+    border-right: solid $selected-border-width $border;
+    transition: all $time/5 ease;
+    color: $text1;
+}
+#menu-footer{
+    display: none;
+}
+#content{
+    display: flex;
+    min-width: 400px;
+    height: auto;
+    background-color: $content;
+    position: relative;
+    overflow-x: hidden;
+    box-sizing: border-box;
+    color: $text4;
+    z-index: 1;
+}
+#content section{
+    width: 100%;
+    height: auto;
+    min-height: 100%;
+    position: absolute;
+    left: 0px;
+    right: 0px;
+    padding: 0px 30px 50px 30px;
+    box-sizing: border-box;
+    background-color: none;
+    h2{
+        font-size: 28px;
+    }
+    p{
+        font-size: 18px;
+    }
+}
+.section-show{
+    animation-name: show;
+    animation-duration: $time;
+    animation-timing-function: ease-in-out;
+    animation-fill-mode: forwards;
+    margin-left: 0px;
+    transition: all $time/2 ease-in-out;
+    transition-delay: $time/2;
+}
+.section-hide{
+    animation-name: hide;
+    animation-duration: $time/2;
+    animation-timing-function: ease-in-out;
+    animation-fill-mode: forwards;
+    margin-left: -100%;
+    transition: all $time/2 ease-in-out;
+}
+.section-header{
+    text-align: center;
+    margin-bottom: 80px;
+    font-size: 64px !important;
+}
+#about-me{
+    text-align: center;
+    h1{
+        font-size: 72px;
+    }
+    h2{
+        font-size: 36px;
+    }
+    h3{
+        font-size: 20px;
+    }
+    strong{
+        color: $text0;
+        font-size: 120%;
+    }
+}
+#profile-pic{
+    margin-top: 80px;
+    height: 200px;
+    width: 200px;
+    border: solid $border 5px;
+    border-radius: 100px;
+}
+#my-work{
+    h2{
+        color: $text1;
+    }
+    p a:hover{
+        color: $text3;
+        transition: all $time/2 ease;
+    }
+}
+.projects-list{
+    display: flex;
+    width: 100%;
+    margin-top: 50px;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+}
+.project{
+    position: relative;
+    height: 135px;
+    min-width: 240px;
+    border: solid $border 2px;
+    margin: 20px 20px;
+    overflow: hidden;
+}
+.project-image{
+    position: absolute;
+    height: 100%;
+}
+.project-link{
+    position: absolute;
+    text-transform: capitalize;
+    background-color: $projects;
+    height: 100%;
+    width: 100%;
+    text-align: center;
+    box-sizing: border-box;
+    padding: 30px 10px 10px 10px;
+    font-size: 20px;
+    font-weight: bold;
+    color: $text1;
+    right: 100%;
+    transition: all $time ease;
+}
+.project:hover .project-link{
+    right: 0;
+    transition: all $time ease;
+}
+#contact{
+    text-align: center;
+    h2{
+        color: $text1;
+    }
+}
+#contact-area{
+    max-width: 500px;
+    margin: 0px auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+.contact-link{
+    min-width: 165px;
+}
+i{
+    color: $text4;
+    margin: 20px 50px;
+    box-sizing: border-box;
+    transition: all $time/2 ease;
+}
+i:hover{
+    color: $text3;
+}
+
+@media (max-width: 500px){
+    #main{
+        grid-template-rows: 1fr;
+        grid-template-columns: 1fr;
+    }
+    #sidebar{
+        position: fixed;
+        height: auto;
+        width: 100vw;
+        border-right: none;
+        border-bottom: solid $border-width $border;
+        transform: translateY(-100%);
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: 1fr;
+        transition: all $time/2 ease;
+    }
+    #sidebar:hover{
+        transform: none;
+    }
+    #sidebar:before{
+        content: "Menu";
+        position: absolute;
+        bottom: -50px;
+        right: 0;
+        left: 0;
+        height: 50px;
+        background-color: $sidebar-clicked;
+        text-align: center;
+        line-height: 100%;
+        font-size: 20px;
+        padding-top: 20px;
+        border-bottom: solid $border-width $border;
+        border-top: solid $border-width $border;
+        box-sizing: border-box;
+    }
+    #menu-header, #menu{
+        display: inline-block;
+        height: 100%;
+        transition: all $time ease;
+    }
+    #menu-header{
+        border-left: solid $border-width $border;
+        box-sizing: border-box;
+        grid-area: 1/2/2/3;
+    }
+    #name{
+        margin-top: 0px;
+    }
+    #menu{
+        height: 100%;
+        float: left;
+        margin: 0px;
+        display: grid;
+        grid-template-rows: 1fr 1fr 1fr;
+        grid-template-columns: 1fr;
+        align-items: center;
+    }
+    .menu-item{
+        height: 100%;
+    }
+    #content{
+        display: contents;
+        top: 0px;
+        padding-top: 40px;
+        box-sizing: border-box;
+    }
+}
