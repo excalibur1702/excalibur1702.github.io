@@ -3,34 +3,36 @@ const domContainer = document.getElementById("root");
 const contentClasses=["section-hide","section-show"];
 const menuClasses=["menu-item not-selected","menu-item selected"];
 const fccProjectImages=[
-                        "../img/tribute-page.png",
-                        "../img/survey-form.png",
-                        "../img/product-landing-page.png",
-                        "../img/technical-documantation-page.png",
-                        "../img/personal-portfolio-webpage.png",
-                        "../img/random-quote-machine.png",
-                        "../img/markdown-previewer.png",
-                        "../img/drum-machine.png",
-                        "../img/javascript-calculator.png",
-                        "../img/pomodoro-clock.png"
+                        "tribute-page.png",
+                        "survey-form.png",
+                        "product-landing-page.png",
+                        "technical-documantation-page.png",
+                        "personal-portfolio-webpage.png",
+                        "random-quote-machine.png",
+                        "markdown-previewer.png",
+                        "drum-machine.png",
+                        "javascript-calculator.png",
+                        "pomodoro-clock.png"
                     ];
 const fccProjectLinks=[
-                        "https://excalibur1702.github.io/freeCodeCamp-projects/1-responsive-web-design/1.1-tribute-page/",
-                        "https://excalibur1702.github.io/freeCodeCamp-projects/1-responsive-web-design/1.2-survey-form/",
-                        "https://excalibur1702.github.io/freeCodeCamp-projects/1-responsive-web-design/1.3-product-landing-page/",
-                        "https://excalibur1702.github.io/freeCodeCamp-projects/1-responsive-web-design/1.4-technical-documentation-page/",
-                        "https://excalibur1702.github.io/freeCodeCamp-projects/1-responsive-web-design/1.5-personal-portfolio-webpage/",
-                        "https://excalibur1702.github.io/freeCodeCamp-projects/3-front-end-development-libraries/3.1-random-quote-machine/",
-                        "https://excalibur1702.github.io/freeCodeCamp-projects/3-front-end-development-libraries/3.2-markdown-previewer/index.html",
-                        "https://excalibur1702.github.io/freeCodeCamp-projects/3-front-end-development-libraries/3.3-drum-machine/index.html",
-                        "https://excalibur1702.github.io/freeCodeCamp-projects/3-front-end-development-libraries/3.4-javascript-calculator/index.html",
-                        "https://excalibur1702.github.io/freeCodeCamp-projects/3-front-end-development-libraries/3.5-pomodoro-clock/index.html",
+                        "1-responsive-web-design/1.1-tribute-page/",
+                        "1-responsive-web-design/1.2-survey-form/",
+                        "1-responsive-web-design/1.3-product-landing-page/",
+                        "1-responsive-web-design/1.4-technical-documentation-page/",
+                        "1-responsive-web-design/1.5-personal-portfolio-webpage/",
+                        "3-front-end-development-libraries/3.1-random-quote-machine/",
+                        "3-front-end-development-libraries/3.2-markdown-previewer/index.html",
+                        "3-front-end-development-libraries/3.3-drum-machine/index.html",
+                        "3-front-end-development-libraries/3.4-javascript-calculator/index.html",
+                        "3-front-end-development-libraries/3.5-pomodoro-clock/index.html",
                     ];
 const selfProjectImages=[
-                            "../img/movie-search.png"
+                            "movie-search.png",
+                            "tic-tac-toe.png"
                         ];
 const selfProjectLinks=[
-                            "https://excalibur1702.github.io/omdb-search"
+                            "omdb-search",
+                            "tic-tac-toe"
                         ];
 
 class Main extends React.Component{
@@ -56,20 +58,20 @@ class Main extends React.Component{
 
     render(){
 
-        const fccProjects=fccProjectLinks.reverse().map((x,i)=>{return(
+        const fccProjects=fccProjectLinks.map((x,i)=>{return(
             <li className="project">
-                <img className="project-image fcc-image" src={fccProjectImages[i]}></img>
-                <a className="project-link fcc-link" href={x}>
-                    {fccProjectImages[i].split("").slice(7,-4).join("").replace(/-/g," ")}
+                <img className="project-image fcc-image" src={"../img/"+fccProjectImages[i]}></img>
+                <a className="project-link fcc-link" href={"https://excalibur1702.github.io/freeCodeCamp-projects/"+x}>
+                    {fccProjectImages[i].split("").slice(0,-4).join("").replace(/-/g," ")}
                 </a>
             </li>
         );});
 
-        const selfProjects=selfProjectLinks.reverse().map((x,i)=>{return(
+        const selfProjects=selfProjectLinks.map((x,i)=>{return(
             <li className="project">
-                <img className="project-image self-image" src={selfProjectImages[i]}></img>
-                <a className="project-link self-link" href={x}>
-                    {selfProjectImages[i].split("").slice(7,-4).join("").replace(/-/g," ")}
+                <img className="project-image self-image" src={"../img/"+selfProjectImages[i]}></img>
+                <a className="project-link self-link" href={"https://excalibur1702.github.io/"+x}>
+                    {selfProjectImages[i].split("").slice(0,-4).join("").replace(/-/g," ")}
                 </a>
             </li>
         );});
@@ -102,7 +104,7 @@ class Main extends React.Component{
                         <article id="selfprojects">
                             <h2>Self-projects</h2>
                             <ul className="projects-list">
-                                {selfProjects}
+                                {selfProjects.reverse()}
                             </ul>
                         </article>
                         <article id="freecodecamp">
@@ -111,7 +113,7 @@ class Main extends React.Component{
                             <p>Certifications: <a href="https://www.freecodecamp.org/certification/excalibur1702/responsive-web-design">Responsive Web Design</a> | <a href="https://www.freecodecamp.org/certification/excalibur1702/javascript-algorithms-and-data-structures">JavaScript Algorithms and Data Structures</a> | <a href="https://www.freecodecamp.org/certification/excalibur1702/front-end-libraries">Front End Libraries</a>
                             </p>
                             <ul className="projects-list">
-                                {fccProjects}
+                                {fccProjects.reverse()}
                             </ul>
                         </article>
                     </section>
