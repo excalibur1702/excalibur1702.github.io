@@ -94,7 +94,7 @@ class Main extends React.Component{
                 <div id="content">
                     <section className={contentClasses[this.state.visibility[0]]} id="about-me">
 
-                        <img id="profile-pic" src="https://media-exp1.licdn.com/dms/image/C4D03AQHwaDmhSd8S2g/profile-displayphoto-shrink_800_800/0/1614791700520?e=1620259200&v=beta&t=VxUsE9lxUQ9DH5LxQoePgNXOxZ3paJav_ABFuXylSJE"></img>
+                        <img id="profile-pic" src="https://avatars.githubusercontent.com/u/53153924"></img>
                         <h1>Hi, I am <strong>Arya Tathe</strong></h1>
                         <h2>I'm an entry-level Front-End Web Developer</h2>
                         <h3>My skillset includes <strong>HTML5/CSS3</strong>, <strong>JavaScript</strong>, <strong>React</strong> with <strong>JSX</strong>, and <strong>SASS</strong>.</h3>
